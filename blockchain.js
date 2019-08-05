@@ -5,7 +5,7 @@ class Blockchain{
     constructor(){
         this.blocks = [new Block()]
         this.index = 1
-        console.log("construtor:", this.blocks) 
+       
     
     }
 
@@ -13,16 +13,16 @@ class Blockchain{
         return this.blocks[this.blocks.length - 1]
     }
 
-    addBlock(){
-       const index = this.index
+    addBlock(data){
+       const index = this.index       
        let previusHash = this.getLastBlock().hash
-       const block = new Block(index,previusHash)
+       const block = new Block(index,previusHash,data)
        this.index ++
-       this.blocks.push(this.block)
+       this.blocks.push(block)
        console.log("add:",this.blocks)  
         
     }
-/*
+
     isValid(){
         //percorre todos os blocos começando pelo segundo bloco 
         for(let i=1;i<this.blocks.length;i++){
@@ -39,7 +39,7 @@ class Blockchain{
         }
         
     }
-*/
+
 }
 
 module.exports = Blockchain
