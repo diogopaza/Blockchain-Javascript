@@ -19,7 +19,7 @@ class Blockchain{
        const block = new Block(index,previusHash,data)
        this.index ++
        this.blocks.push(block)
-       console.log("add:",this.blocks)  
+       //console.log("add:",this.blocks)  
         
     }
 
@@ -28,11 +28,11 @@ class Blockchain{
         for(let i=1;i<this.blocks.length;i++){
             const currentBlock = this.blocks[i]
             const previusBlock = this.blocks[i-1]
-            console.log(currentBlock)  
+            console.log("funcao Isvalid: ", currentBlock)  
             
-            if(this.currentBlock.hash == this.currentBlock.generateHash()){
+            if(currentBlock.hash == currentBlock.generateHash()){
                 console.log("current hash", currentBlock.hash)
-                console.log("previus hash", currentBlock.generateHash)
+                console.log("previus hash", currentBlock.generateHash())
                 return false
 
             }
