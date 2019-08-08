@@ -2,9 +2,10 @@ const Block =  require('./index')
 
 class Blockchain{
 
-    constructor(){
+    constructor(difficulty=1){
         this.blocks = [new Block()]
         this.index = 1
+        this.difficulty = difficulty
        
     
     }
@@ -16,6 +17,7 @@ class Blockchain{
     addBlock(data){
        const index = this.index       
        let previusHash = this.getLastBlock().hash
+       const difficulty = this.difficulty
        const block = new Block(index,previusHash,data)
        this.index ++
        this.blocks.push(block)
